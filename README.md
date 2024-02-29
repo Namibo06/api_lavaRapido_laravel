@@ -1,0 +1,1 @@
+jwt secret[FBHKcOHmZevyR2KJBGtWeFBQM1WKTU3b3AwZATtFfVvoUubVMnanG0Dm8JC9Jztg]

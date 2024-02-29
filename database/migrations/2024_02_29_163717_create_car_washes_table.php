@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('car_washes', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('day');
+            $table->string('hour');
+            $table->string('confirmation');
             $table->timestamps();
         });
     }

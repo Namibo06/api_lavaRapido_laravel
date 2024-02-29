@@ -11,7 +11,7 @@ Route::prefix('v1/user')->group(function(){
     Route::post('/autentication',[UserController::class,'autentication']);
 });
 
-Route::prefix('v1/car_wash')->group(function(){
+Route::prefix('v1/car_wash')->middleware('jwt')->group(function(){
     //horarios disponiveis
     Route::get('/avaliable_schedules',[CarWashController::class,'avaliable_schedules']);
     //marcar horario
