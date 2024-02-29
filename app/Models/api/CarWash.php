@@ -13,10 +13,17 @@ class CarWash extends Model
     protected $fillable=[
         'user_id',
         'appointment',
+        'date',
+        'hour',
+        'minute',
         'confirmation'
     ];
 
+    protected $casts = [
+        'date' => 'datetime:d/m/Y',
+    ];
+
     public function user(){
-        $this->belongsTo(User::class);
+       return $this->belongsTo(User::class,'user_id');
     }
 }
