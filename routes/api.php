@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\api\UserController;
-use App\Http\Controllers\CarWashController;
+use App\Http\Controllers\api\CarWashController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
