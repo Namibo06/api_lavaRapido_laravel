@@ -39,6 +39,22 @@ class CarWashController extends Controller
             ],422);
         }
 
+        $date_exist=CarWash::select('date')->where('date',$date)->first();
+
+        $hour_exist=CarWash::select('hour')->where('hour',$hour)->first();
+
+        $minute_exist=CarWash::select('minute')->where('minute',$minute)->first();
+
+        if($date_exist && $hour_exist && $minute_exist){
+            return response()->json([
+                'status'=>422,
+                'message'=>'Horário já está marcado,tente outro',
+                'date'=>$date_exist,
+                'hour'=>$hour_exist,
+                'minute'=>$minute_exist
+            ],422);
+        }
+
         $make_an_appointment=new CarWash();
         $make_an_appointment->user_id=$user_id;
         $make_an_appointment->date=$date;

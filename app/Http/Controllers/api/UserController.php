@@ -83,13 +83,14 @@ class UserController extends Controller
                 'message'=>'Email/Senha inválidos',
             ],400);
         }
-        
+
         if($request->email==="admin@gmail.com"){
             return response()->json([
                 'status'=>200,
                 'token'=>$token,
                 'user'=>Auth::user(),
-                'user_admin'=>'sim'
+                'user_admin'=>'sim',
+                'message'=>'Usuário Autenticado'
             ],200);
         }
 
@@ -97,7 +98,8 @@ class UserController extends Controller
             'status'=>200,
             'token'=>$token,
             'user'=>Auth::user(),
-            'user_admin'=>'nao'
+            'user_admin'=>'nao',
+            'message'=>'Usuário Autenticado'
         ],200);
     }
 }
