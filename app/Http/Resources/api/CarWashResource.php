@@ -22,16 +22,20 @@ class CarWashResource extends JsonResource
         return [
             'user'=>[
                 'id_user'=>$this->user->id,
+                'first_name'=>$this->user->first_name,
+                'last_name'=>$this->user->last_name,
                 'fullName'=>$this->user->first_name." ".$this->user->last_name,
                 'phone'=>$this->user->phone,
                 'email'=>$this->user->email
             ],
             'horario'=>[
+                'cod'=>$this->id,
                 'fullHour'=>$fullHour,
                 'hourMinute'=>$hourMinute,
                 'date'=>$date,
                 'hour'=>$this->hour,
                 'minute'=>$this->minute,
+                'confirmado'=>$this->confirmation
 
             ],
         ];

@@ -15,7 +15,7 @@ Route::prefix('v1/car_wash')->group(function(){
     //horarios disponiveis
     Route::get('/avaliable_schedules',[CarWashController::class,'avaliable_schedules']);
     //marcar horario
-    Route::post('/make_an_appointment',[CarWashController::class,'make_an_appointment']);
+    Route::post('/make_an_appointment',[CarWashController::class,'make_an_appointment'])->middleware('jwtAuth');
     //confirmar horario
     Route::post('/time_confirmation',[CarWashController::class,'time_confirmation'])->middleware('jwtAuth');
 });

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('date');
             $table->string('hour');
             $table->string('minute');
-            $table->string('confirmation')->default('nao');
+            $table->string('confirmation')->default('andamento');
             $table->timestamps();
         });
     }

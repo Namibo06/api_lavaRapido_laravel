@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\api\CarWashResource;
 use App\Models\api\CarWash;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -20,13 +21,13 @@ class CarWashController extends Controller
     }
 
     public function make_an_appointment(Request $request){
-        $user_id=auth()->id();
-        $date=$request->date;
+        $user_id=$request->user_id;
+        $date_without_format=$request->date;
+        $date=Carbon::createFromFormat('d m Y',$date_without_format)->format('Y-m-d');
         $hour=$request->hour;
         $minute=$request->minute;
 
         $validator=Validator::make($request->all(),[
-            'user_id'=>'required',
             'date'=>'required',
             'hour'=>'required',
             'minute'=>'required'
@@ -77,7 +78,6 @@ class CarWashController extends Controller
     public function time_confirmation(Request $request){
         $id=$request->id;
         $confirmation=$request->confirmation;
-
 
         $update_confirmation=CarWash::where('id',$id)->update([
             'confirmation'=>$confirmation
